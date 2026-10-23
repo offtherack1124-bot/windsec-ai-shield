@@ -10,12 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DocumentationRouteImport } from './routes/documentation'
+import { Route as ProductsRouteImport } from './routes/products'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogUntrustedWebContentRouteImport } from './routes/blog.untrusted-web-content'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentationRoute = DocumentationRouteImport.update({
+  id: '/documentation',
+  path: '/documentation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -31,30 +43,54 @@ const BlogUntrustedWebContentRoute = BlogUntrustedWebContentRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/documentation': typeof DocumentationRoute
+  '/products': typeof ProductsRoute
   '/blog/untrusted-web-content': typeof BlogUntrustedWebContentRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/documentation': typeof DocumentationRoute
+  '/products': typeof ProductsRoute
   '/blog/untrusted-web-content': typeof BlogUntrustedWebContentRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/documentation': typeof DocumentationRoute
+  '/products': typeof ProductsRoute
   '/blog/untrusted-web-content': typeof BlogUntrustedWebContentRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog/untrusted-web-content' | '/blog/'
+  fullPaths:
+    | '/'
+    | '/documentation'
+    | '/products'
+    | '/blog/untrusted-web-content'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog/untrusted-web-content' | '/blog'
-  id: '__root__' | '/' | '/blog/untrusted-web-content' | '/blog/'
+  to:
+    | '/'
+    | '/documentation'
+    | '/products'
+    | '/blog/untrusted-web-content'
+    | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/documentation'
+    | '/products'
+    | '/blog/untrusted-web-content'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DocumentationRoute: typeof DocumentationRoute
+  ProductsRoute: typeof ProductsRoute
   BlogUntrustedWebContentRoute: typeof BlogUntrustedWebContentRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
@@ -66,6 +102,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documentation': {
+      id: '/documentation'
+      path: '/documentation'
+      fullPath: '/documentation'
+      preLoaderRoute: typeof DocumentationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -87,6 +137,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DocumentationRoute: DocumentationRoute,
+  ProductsRoute: ProductsRoute,
   BlogUntrustedWebContentRoute: BlogUntrustedWebContentRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
