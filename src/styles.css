@@ -74,7 +74,14 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
   }
-  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
+}
+
+.roe-wordmark { font-size: 160px; line-height: 0.8; }
+@media (min-width: 640px) { .roe-wordmark { font-size: 260px; } }
+@media (min-width: 1024px) { .roe-wordmark { font-size: 320px; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
 @utility section-navy {

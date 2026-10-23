@@ -5,9 +5,9 @@ import { Nav, Footer, downloadExtension } from "@/components/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Roe by Windsec — See what your AI agent sees" },
+      { title: "Roe by Windsec — Secure what your AI agents see" },
       { name: "description", content: "Roe is a browser extension that reveals hidden instructions in pages, emails, files and images aimed at your AI agent." },
-      { property: "og:title", content: "Roe by Windsec — See what your AI agent sees" },
+      { property: "og:title", content: "Roe by Windsec — Secure what your AI agents see" },
       { property: "og:description", content: "Reveal hidden prompt injections before your AI agent obeys them." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -136,7 +136,7 @@ function Index() {
         <div className="relative mx-auto max-w-6xl px-6 py-28">
           <p className="animate-rise font-mono text-sm text-cream/80">ROE 0.5.0 · Windsec</p>
           <h1 className="mt-4 max-w-3xl animate-rise text-6xl font-extrabold leading-[0.95] text-cream [animation-delay:100ms] md:text-8xl">
-            See what your AI agent sees.
+            Secure what your AI agents see.
           </h1>
           <p className="mt-6 max-w-xl animate-rise text-lg text-cream/85 [animation-delay:200ms]">
             Roe shows what a page, email, issue, file or image says to your agent that you can't see, which attack it matches, and which sensitive actions it's aiming at.
