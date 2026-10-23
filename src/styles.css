@@ -78,6 +78,8 @@
 }
 
 .roe-wordmark { font-size: 128px; line-height: 0.8; }
+.roe-bird { mask-size: contain; mask-position: center; mask-repeat: no-repeat; }
+.install-repo { box-shadow: 7px 7px 0 var(--primary); }
 @media (min-width: 640px) { .roe-wordmark { font-size: 260px; } }
 @media (min-width: 1024px) { .roe-wordmark { font-size: 320px; } }
 @media (prefers-reduced-motion: reduce) {

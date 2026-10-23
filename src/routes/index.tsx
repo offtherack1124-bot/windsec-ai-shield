@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Nav, Footer, downloadExtension } from "@/components/site";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -230,20 +231,26 @@ function Index() {
         </div>
       </section>
 
-      <section id="install" className="section-navy">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2">
-          <div>
-            <h2 className="text-5xl font-extrabold text-cream">Ship with Roe.</h2>
-            <p className="mt-4 text-cream/80">Free, open source and runs entirely in your browser.</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <button onClick={downloadExtension} className="rounded-full bg-accent px-6 py-3 font-bold text-accent-foreground transition-transform hover:-translate-y-1">Download extension</button>
-              <Link to="/blog" className="rounded-full border-2 border-cream px-6 py-3 font-bold text-cream hover:bg-cream hover:text-navy">Read the blog</Link>
-            </div>
+      <section id="install" className="bg-background text-primary">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center">
+          <p className="font-mono text-xs uppercase">Get started</p>
+          <h2 className="mt-4 font-sans text-4xl font-medium md:text-5xl">Ship with Roe</h2>
+          <Button asChild className="install-repo mt-8 h-auto max-w-full whitespace-normal rounded-none bg-accent px-5 py-4 font-mono text-sm font-bold text-accent-foreground hover:bg-accent/90 sm:text-base">
+            <a href="https://github.com/WindSecurity/roe" target="_blank" rel="noreferrer" className="break-all">https://github.com/WindSecurity/roe</a>
+          </Button>
+          <ol className="mt-10 grid gap-3 text-left sm:grid-cols-2">
+            {[
+              "Clone the repo and open the extension folder",
+              "Open chrome://extensions → Developer mode on",
+              "Load unpacked → pick the folder with manifest.json",
+              "Click the Roe icon on any page",
+            ].map((step, i) => <li key={step} className="border bg-card px-4 py-5 text-sm leading-relaxed"><span className="mb-2 block font-mono text-xs">{i + 1}</span>{step}</li>)}
+          </ol>
+          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">For download scanning, open Roe’s Details in chrome://extensions and turn on “Allow access to file URLs”.</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 font-mono text-sm">
+            <Link to="/products" className="border px-4 py-2 hover:bg-secondary">Free · 0.2</Link>
+            <Link to="/products" className="bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90">Enterprise · 0.5.0</Link>
           </div>
-          <pre className="overflow-x-auto rounded-2xl bg-cream p-6 font-mono text-sm text-navy">{`1  unzip roe-extension.zip
-2  open chrome://extensions → Developer mode on
-3  Load unpacked → pick the folder with manifest.json
-4  click the Roe icon on any page`}</pre>
         </div>
       </section>
       <Footer />
