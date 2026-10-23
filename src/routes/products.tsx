@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDownToLine, ArrowRight, ShieldCheck, Eye, FileSearch } from "lucide-react";
 import { Nav, Footer, downloadExtension } from "@/components/site";
 import { Button } from "@/components/ui/button";
-import bird from "@/assets/roe-bird.png.asset.json";
+import { RoeBird } from "@/components/roe-bird";
 
 export const Route = createFileRoute("/products")({
   head: () => ({ meta: [
@@ -20,9 +20,8 @@ function Products() {
   return <div className="min-h-screen">
     <Nav />
     <header className="bg-secondary">
-      <div className="relative mx-auto max-w-6xl overflow-hidden px-6 py-16 md:py-20">
-        <img src={bird.url} alt="" className="absolute right-6 top-8 h-48 w-48 object-contain opacity-15 md:h-80 md:w-80" />
-        <div className="relative">
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 py-16 md:grid-cols-[minmax(0,1fr)_240px] md:py-20 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div>
           <p className="font-mono text-xs uppercase text-accent">Windsec / Products</p>
           <h1 className="mt-4 font-display text-7xl font-extrabold md:text-8xl">Roe</h1>
           <p className="mt-4 max-w-xl text-xl">Secure what your AI agents see.</p>
@@ -32,6 +31,7 @@ function Products() {
             <Button asChild variant="outline" size="lg"><Link to="/documentation">Installation guide <ArrowRight /></Link></Button>
           </div>
         </div>
+        <RoeBird decorative className="h-40 w-40 justify-self-center text-primary md:h-60 md:w-60 lg:h-80 lg:w-80" />
       </div>
     </header>
     <section className="mx-auto max-w-6xl px-6 py-16">

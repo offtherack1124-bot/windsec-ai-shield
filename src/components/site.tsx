@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import bird from "@/assets/roe-bird.png.asset.json";
+import { RoeBird } from "@/components/roe-bird";
 
 export function downloadExtension() {
   fetch("/roe-extension.zip")
@@ -58,7 +58,7 @@ export function Footer() {
         </div>
         <div className="flex items-center justify-between border-t border-cream/20 py-5 text-xs text-cream/60">
           <span>windsec · Roe</span>
-          <img src={bird.url} alt="Roe bird" className="h-10 w-10 object-contain" />
+          <RoeBird className="h-10 w-10 text-cream" />
         </div>
       </div>
     </footer>

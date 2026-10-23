@@ -11,3 +11,4 @@
 
 - Keep Products and Documentation as separate TanStack leaf routes, with shared navigation and footer in `src/components/site.tsx`, so each page has a stable URL and its own metadata.
 - Use the uploaded bird asset pointer for site imagery and a downscaled raster in `public/` for the favicon, because browser icons must be served as actual files.
+- Render site bird artwork through `RoeBird` using the original asset as a CSS mask and semantic current-color tokens, so its silhouette stays exact while its contrast follows the surrounding section.
