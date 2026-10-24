@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Nav, Footer, downloadExtension } from "@/components/site";
+import { RoeBird } from "@/components/roe-bird";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -132,8 +133,9 @@ function Index() {
       <Nav />
       <section className="section-navy relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-20" />
-        <div className="absolute right-[8%] top-16 h-40 w-28 rounded-[50%] bg-accent animate-float" />
-        <div className="absolute bottom-10 right-[22%] h-24 w-16 rounded-[50%] bg-accent/80 animate-float [animation-delay:-3s]" />
+        <RoeBird decorative className="absolute right-[10%] top-1/2 hidden h-72 w-64 -translate-y-1/2 text-cream animate-float lg:block xl:h-96 xl:w-80" />
+        <div className="absolute right-[6%] top-16 h-40 w-28 rounded-[50%] bg-accent animate-float" />
+        <div className="absolute bottom-10 right-[26%] h-24 w-16 rounded-[50%] bg-accent/80 animate-float [animation-delay:-3s]" />
         <div className="relative mx-auto max-w-6xl px-6 py-28">
           <p className="animate-rise font-mono text-sm text-cream/80">ROE 0.5.0 · Windsec</p>
           <h1 className="mt-4 max-w-3xl animate-rise text-6xl font-extrabold leading-[0.95] text-cream [animation-delay:100ms] md:text-8xl">
@@ -234,7 +236,7 @@ function Index() {
       <section id="install" className="bg-background text-primary">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center">
           <p className="font-mono text-xs uppercase">Get started</p>
-          <h2 className="mt-4 font-sans text-4xl font-medium md:text-5xl">Ship with Roe</h2>
+          <h2 className="mt-4 text-4xl font-extrabold md:text-5xl">Ship with Roe</h2>
           <Button asChild className="install-repo mt-8 h-auto max-w-full whitespace-normal rounded-none bg-accent px-5 py-4 font-mono text-sm font-bold text-accent-foreground hover:bg-accent/90 sm:text-base">
             <a href="https://github.com/WindSecurity/roe" target="_blank" rel="noreferrer" className="break-all">https://github.com/WindSecurity/roe</a>
           </Button>
