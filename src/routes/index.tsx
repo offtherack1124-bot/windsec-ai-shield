@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Nav, Footer, downloadExtension } from "@/components/site";
+import { RoeBird } from "@/components/roe-bird";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
